@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zyml — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0f0f;
+      --surface: #161616;
+      --border: #2a2a2a;
+      --text: #e8e4dc;
+      --muted: #7a7570;
+      --accent: #c26a3a;   /* terracotta — your season */
+      --accent2: #4e7b6b;  /* deep teal */
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      padding: 0 1.5rem;
+    }
+
+    /* ── NAV ── */
+    nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+    .nav-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+    }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 6rem 0 4rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      line-height: 1.15;
+      font-weight: 400;
+      margin-bottom: 1.8rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--muted);
+    }
+    .hero-bio {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.8;
+    }
+    .hero-bio strong { color: var(--text); font-weight: 400; }
+
+    /* ── SECTION ── */
+    section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── RESEARCH ── */
+    .research-item {
+      margin-bottom: 2.5rem;
+    }
+    .research-item h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+    .research-item .meta {
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.6rem;
+    }
+    .research-item p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    /* ── PROJECTS ── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    @media (max-width: 540px) { .project-grid { grid-template-columns: 1fr; } }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s;
+      display: block;
+    }
+    .project-card:hover { border-color: var(--accent); }
+    .project-card h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    .project-card p { font-size: 0.85rem; color: var(--muted); }
+    .project-tag {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent2);
+    }
+
+    /* ── CONTACT ── */
+    .contact-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .contact-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-links a:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-name">Zyml</span>
+    <div class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <p class="hero-eyebrow">UC Berkeley · Neuroscience · Premed</p>
+    <h1>Where medicine meets<br>what's next</h1>
+    <p class="hero-bio">
+      I'm a sophomore at UC Berkeley studying Neuroscience on a premed track.
+      I'm drawn to the space where <strong>medicine, health technology, and entrepreneurship</strong> converge —
+      where scientific thinking meets the ambition to build something that actually changes how care is delivered.
+      I want to be a physician who doesn't just practice medicine, but helps <strong>reimagine it</strong>.
+    </p>
+  </div>
+
+  <section id="research">
+    <p class="section-label">Research Experience</p>
+
+    <div class="research-item">
+      <h3>Lee Retina Lab — USC Roski Eye Institute</h3>
+      <p class="meta">Extracellular Vesicle Isolation · OCT Imaging</p>
+      <p>Worked on extracellular vesicle isolation and optical coherence tomography imaging as part of ongoing retinal research.</p>
+    </div>
+
+    <div class="research-item">
+      <h3>GBSMRC — Dr. Harvey's Lab</h3>
+      <p class="meta">Actigraphy Data Analysis</p>
+      <p>Analyzed actigraphy data to study sleep and circadian patterns in clinical populations.</p>
+    </div>
+
+    <div class="research-item">
+      <h3>UCLA NeuroCamp</h3>
+      <p class="meta">C. elegans mRNA Research</p>
+      <p>Conducted molecular biology research focused on mRNA expression in <em>C. elegans</em> as a model organism for neurological study.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <p class="section-label">Projects & Coursework</p>
+    <div class="project-grid">
+
+      <!-- Edit or add cards below -->
+      <a class="project-card" href="#">
+        <h4>Project Title</h4>
+        <p>Short description of what you built or studied. Replace this with something real.</p>
+        <span class="project-tag">Course / Lab</span>
+      </a>
+
+      <a class="project-card" href="#">
+        <h4>Project Title</h4>
+        <p>Short description of what you built or studied. Replace this with something real.</p>
+        <span class="project-tag">Course / Lab</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="section-label">Get in Touch</p>
+    <div class="contact-links">
+      <a href="mailto:your@email.com">your@email.com</a>
+      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Zyml · Built with GitHub Pages
+  </footer>
+
+</body>
+</html>
